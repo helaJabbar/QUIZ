@@ -221,15 +221,6 @@ function endQuiz() {
         <p class="message">${message}</p>
       </div>
     `;
-// 🔥 ENREGISTRER LE RÉSULTAT DANS FIREBASE
-const resultData = {
-    nom: participantName,
-    score: score,
-    total: questions.length,
-    temps: formatTime(timerElapsed),
-    date: new Date().toLocaleString()
-  };
-  
   
   
   clearInterval(timerInterval);
@@ -304,4 +295,5 @@ function startConfetti() {
 
   setInterval(draw, 20);
 }
+
 
