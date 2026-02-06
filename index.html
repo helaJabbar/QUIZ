@@ -9,6 +9,31 @@
       href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Fredoka+One&display=swap"
       rel="stylesheet"
     />
+    <script type="module">
+        // 1️⃣ Importer Firebase + Firestore
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-firestore.js";
+      
+        // 2️⃣ Configuration de TON projet (celle que tu m’as donnée)
+        const firebaseConfig = {
+          apiKey: "AIzaSyCsbA8hhJ0on0jTRlpYOJxLIKaEH76lqYw",
+          authDomain: "quiz-e2db1.firebaseapp.com",
+          projectId: "quiz-e2db1",
+          storageBucket: "quiz-e2db1.firebasestorage.app",
+          messagingSenderId: "266215235292",
+          appId: "1:266215235292:web:dd4f66ac9ad993ed461e19"
+        };
+      
+        // 3️⃣ Initialiser Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+      
+        // 👉 On rend db accessible partout dans ton JS
+        window.db = db;
+        window.addDoc = addDoc;
+        window.collection = collection;
+      </script>
+      
   </head>
   <body>
     <header id="examHeader">
