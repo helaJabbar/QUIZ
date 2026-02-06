@@ -1,8 +1,11 @@
 let questions = [];
+let erreurs = [];
+let indexErreur = 0;
+
 
 async function loadQuestions() {
   try {
-    const response = await fetch("questions.json");
+    const response = await fetch("./q.json");
     if (!response.ok) throw new Error("Impossible de charger les questions !");
     questions = await response.json();
   } catch (err) {
@@ -22,7 +25,7 @@ let userAnswers = new Array(questions.length).fill(null);
 let quizFinished = false;
 
 let timeLeft;
-let timerElapsed = 0; // <-- temps écoulé en secondes
+let timerElapsed = 0; 
 
 const questionEl = document.getElementById("question");
 const choicesEl = document.getElementById("choices");
@@ -30,6 +33,50 @@ const nextBtn = document.getElementById("nextBtn");
 const prevBtn = document.getElementById("prevBtn");
 const progressEl = document.getElementById("progress");
 const timerEl = document.getElementById("timer");
+
+//====================Verification du formulaire=========
+function verifierSaisie(firstName, lastName, dob) {
+
+  if (!lastName || !firstName || !dob) {
+    alert("Veuillez remplir tous les champs 😊");
+    return false;
+  }
+
+  // ---- Contrôle : lettres + espaces uniquement ----
+  const nameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ\s]+$/;
+
+  if (!nameRegex.test(lastName)) {
+    alert("Le nom doit contenir uniquement des lettres et des espaces ❌");
+    return false;
+  }
+
+  if (!nameRegex.test(firstName)) {
+    alert("Le prénom doit contenir uniquement des lettres et des espaces ❌");
+    return false;
+  }
+
+  // ---- Contrôle : âge >= 10 ans ----
+  const birthDate = new Date(dob);
+  const today = new Date();
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDiff = today.getMonth() - birthDate.getMonth();
+
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+
+  if (isNaN(age)) {
+    alert("Veuillez entrer une date valide ❌");
+    return false;
+  }
+
+  if (age < 10) {
+    alert("L'âge doit être au moins 10 ans ❌");
+    return false;
+  }
+
+  return true; // ✅ Tout est OK
+}
 
 // ================== DÉMARRER LE QUIZ ==================
 startBtn.onclick = async (e) => {
@@ -39,10 +86,9 @@ startBtn.onclick = async (e) => {
   const firstName = document.getElementById("firstName").value.trim();
   const dob = document.getElementById("dob").value;
 
-  if (!lastName || !firstName || !dob) {
-    alert("Veuillez remplir tous les champs 😊");
+  if (!verifierSaisie(firstName, lastName, dob)) {
     return;
-  }
+  }  
 
   document.getElementById(
     "participantName"
@@ -51,7 +97,7 @@ startBtn.onclick = async (e) => {
   quizContainer.style.display = "block";
 
   await loadQuestions();
-  userAnswers = new Array(questions.length).fill(null); // maintenant correct
+  userAnswers = new Array(questions.length).fill(null); 
   startQuiz();
 };
 
@@ -60,7 +106,7 @@ startBtn.onclick = async (e) => {
 function startQuiz() {
   showQuestion();
 
-  timeLeft = 5400; // 90 min en sec
+  timeLeft = 5400; 
 
   timerInterval = setInterval(() => {
     let minutes = Math.floor(timeLeft / 60);
@@ -100,7 +146,9 @@ function showQuestion() {
     if (userAnswers[index] === i) input.checked = true;
 
     label.appendChild(input);
-    label.appendChild(document.createTextNode(" " + choice));
+    label.appendChild(
+        document.createTextNode(" " + decodeHTML(choice))
+      );
     div.appendChild(label);
     choicesEl.appendChild(div);
   });
@@ -161,11 +209,18 @@ prevBtn.onclick = () => {
 
 // ================== CALCULER SCORE ==================
 function calculateScore() {
-  score = userAnswers.reduce((acc, ans, i) => {
-    if (ans === questions[i].a) return acc + 1;
-    return acc;
-  }, 0);
-}
+    erreurs = []; // reset
+  
+    score = userAnswers.reduce((acc, ans, i) => {
+      if (ans === questions[i].a) {
+        return acc + 1;
+      } else {
+        erreurs.push(i); // stocke l'index de l'erreur
+        return acc;
+      }
+    }, 0);
+  }
+  
 
 // ================== BARRE DE PROGRESSION ==================
 function updateProgressBar() {
@@ -192,7 +247,7 @@ function updateProgressBar() {
 
 // ================== FIN DU QUIZ ==================
 function endQuiz() {
-  const scoreMinimum = 25; // score minimum pour valider
+  const scoreMinimum = 2; 
   const participantName =
     document.getElementById("participantName").textContent;
 
@@ -208,21 +263,34 @@ function endQuiz() {
 
   // On vide le quiz
   document.querySelector(".quiz").innerHTML = `
-      <div class="quiz-result ${statusClass}">
-        ${isWinner ? '<canvas id="confettiCanvas"></canvas>' : ""}
-        <div class="icon">${icon}</div>
-        <p class="nom"><strong>${participantName}</strong></p>
-        <p class="score">Score : <strong>${score} / ${
-    questions.length
-  }</strong></p>
-        <p class="time">Temps utilisé : <strong>${formatTime(
-          timerElapsed
-        )}</strong></p>
-        <p class="message">${message}</p>
-      </div>
-    `;
-  
-  
+  <div class="quiz-result ${statusClass}">
+    ${isWinner ? '<canvas id="confettiCanvas"></canvas>' : ""}
+    <div class="icon">${icon}</div>
+    <p class="nom"><strong>${participantName}</strong></p>
+    <p class="score">
+      Score : <strong>${score} / ${questions.length}</strong>
+    </p>
+    <p class="time">
+      Temps utilisé : <strong>${formatTime(timerElapsed)}</strong>
+    </p>
+    <p class="message">${message}</p>
+
+    <div class="result-buttons">
+      <button class="btn" onclick="voirErreurs()">📘 Voir mes erreurs</button>
+
+      ${
+        isWinner
+          ? '<button class="btn" onclick="voirCertificat()">🎓 Voir mon certificat</button>'
+          : ""
+      }
+    </div>
+  </div>
+
+  <div id="correctionMode" style="display:none"></div>
+  <div id="certificateMode" style="display:none"></div>
+`;
+
+
   clearInterval(timerInterval);
 
   if (isWinner) startConfetti();
@@ -295,5 +363,122 @@ function startConfetti() {
 
   setInterval(draw, 20);
 }
+//====================================Erreurs================================
+function voirErreurs() {
+    if (erreurs.length === 0) {
+      alert("🎉 Bravo ! Aucune erreur !");
+      return;
+    }
+  
+    document.querySelector(".quiz-result").style.display = "none";
+  
+    const zone = document.getElementById("correctionMode");
+    zone.style.display = "block";
+  
+    indexErreur = 0; // commencer à la première erreur
+    afficherErreur(indexErreur);
+  }
 
+  function afficherErreur(pos) {
+    const zone = document.getElementById("correctionMode");
+  
+    const i = erreurs[pos]; // index réel de la question
+    const q = questions[i];
+  
+    let choixHTML = "";
+  
+    q.c.forEach((choice, indexChoix) => {
+      let classe = "";
+  
+      if (indexChoix === q.a) classe = "correct-review";
+      if (userAnswers[i] === indexChoix && userAnswers[i] !== q.a)
+        classe = "wrong-review";
+  
+      choixHTML += `
+        <div class="choice-item ${classe}">
+          <input type="radio" disabled ${
+            userAnswers[i] === indexChoix ? "checked" : ""
+          }>
+          ${typeof choice === "string" ? choice : choice.text}
+        </div>
+      `;
+    });
+  
+    zone.innerHTML = `
+      <h3>📘 Mes erreurs</h3>
+  
+      <div class="erreur-card">
+        <div class="question-container">
+          <img src="engrenage.png" class="question-img" alt="question">
+          <p id="questionCorrection">${q.q}</p>
+        </div>
+  
+        <div id="choicesCorrection">
+          ${choixHTML}
+        </div>
+  
+        <div class="nav-erreurs-footer">
+          <button class="btn" onclick="prevErreur()" ${pos === 0 ? "disabled" : ""}>⬅ Précédent</button>
+          <span>Erreur ${pos + 1} / ${erreurs.length}</span>
+          <button class="btn" onclick="nextErreur()" ${pos === erreurs.length - 1 ? "disabled" : ""}>Suivant ➡</button>
+        </div>
+        <div style="text-align:center; margin-top:20px">
+        <button class="btn" onclick="retourResultat()">⬅ Retour</button>
+      </div>
+      </div>
 
+      
+    `;
+  }
+  function nextErreur() {
+    if (indexErreur < erreurs.length - 1) {
+      indexErreur++;
+      afficherErreur(indexErreur);
+    }
+  }
+  
+  function prevErreur() {
+    if (indexErreur > 0) {
+      indexErreur--;
+      afficherErreur(indexErreur);
+    }
+  }
+      
+  function retourResultat() {
+    document.getElementById("correctionMode").style.display = "none";
+    document.getElementById("certificateMode").style.display = "none";
+    document.querySelector(".quiz-result").style.display = "block";
+  }
+  
+  function decodeHTML(str) {
+    const txt = document.createElement("textarea");
+    txt.innerHTML = str;
+    return txt.value;
+  }
+//===============================Certificat =============================
+function voirCertificat() {
+    const certDiv = document.getElementById("certificateMode");
+    certDiv.style.display = "block";
+  
+    document.querySelector(".quiz-result").style.display = "none";
+  
+    const name = document.getElementById("participantName").textContent;
+  
+    certDiv.innerHTML = `
+      <div class="certificate-container">
+        <img src="./certif.png" class="certificat-bg" alt="Certificat">
+  
+        <div class="certificat-name">${name}</div>
+  
+        <button class="btn btn-certif" onclick="retourResultat()">⬅ Retour</button>
+      </div>
+    `;
+  }
+  
+  //=============================================================
+  function retourResultat() {
+    document.getElementById("correctionMode").style.display = "none";
+    document.getElementById("certificateMode").style.display = "none";
+    document.querySelector(".quiz-result").style.display = "block";
+  }
+  
