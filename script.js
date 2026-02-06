@@ -5,7 +5,7 @@ let indexErreur = 0;
 
 async function loadQuestions() {
   try {
-    const response = await fetch("./q.json");
+    const response = await fetch("./questions.json");
     if (!response.ok) throw new Error("Impossible de charger les questions !");
     questions = await response.json();
   } catch (err) {
@@ -482,3 +482,4 @@ function voirCertificat() {
     document.querySelector(".quiz-result").style.display = "block";
   }
   
+
