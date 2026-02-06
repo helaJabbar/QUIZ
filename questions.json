@@ -11,17 +11,17 @@
     },
     {
       "q": "Quelle balise contient tout le contenu visible de la page ?",
-      "c": ["<html>", "<head>", "<body>", "<title>"],
+      "c": ["&lt;html&gt;", "&lt;head&gt;", "&lt;body&gt;", "&lt;title&gt;"],
       "a": 2
     },
     {
       "q": "Quelle balise sert à écrire un paragraphe ?",
-      "c": ["<h1>", "<p>", "<div>", "<span>"],
+      "c": ["&lt;h1&gt;", "&lt;p&gt;", "&lt;div&gt;", "&lt;span&gt;"],
       "a": 1
     },
     {
       "q": "Quelle balise sert à écrire le plus grand titre ?",
-      "c": ["<h6>", "<h3>", "<h1>", "<title>"],
+      "c": ["&lt;h6&gt;", "&lt;h3&gt;", "&lt;h1&gt;", "&lt;title&gt;"],
       "a": 2
     },
     {
@@ -36,12 +36,17 @@
     },
     {
       "q": "Quelle balise sert à créer un lien ?",
-      "c": ["<link>", "<a>", "<url>", "<href>"],
+      "c": ["&lt;link&gt;", "&lt;a&gt;", "&lt;url&gt;", "&lt;href&gt;"],
       "a": 1
     },
     {
-      "q": "Que fait la balise <br> ?",
-      "c": ["Un paragraphe", "Un titre", "Un retour à la ligne", "Une image"],
+      "q": "Que fait la balise br ?",
+      "c": [
+        "Un paragraphe",
+        "Un titre",
+        "Un retour à la ligne",
+        "Une image"
+      ],
       "a": 2
     },
     {
@@ -123,7 +128,7 @@
       "q": "Où peut-on écrire du CSS ?",
       "c": [
         "Dans un fichier .css",
-        "Dans la balise <style>",
+        "Dans la balise &lt;style&gt;",
         "Directement dans une balise HTML",
         "Toutes les réponses"
       ],
@@ -131,7 +136,7 @@
     },
     {
       "q": "Quelle balise HTML contient le CSS interne ?",
-      "c": ["<css>", "<script>", "<style>", "<design>"],
+      "c": ["&lt;css&gt;", "&lt;script&gt;", "&lt;style&gt;", "&lt;design&gt;"],
       "a": 2
     },
     {
@@ -150,8 +155,8 @@
       "a": 1
     },
     {
-      "q": "Quel langage rend la page plus jolie ?",
-      "c": ["HTML", "CSS", "Java", "PHP"],
+      "q": "Parmi ces valeurs, laquelle est correcte pour font-weight ?",
+      "c": ["font-weight: big;", "font-weight: bold;", "font-weight: large;", "font-weight: italic;"],
       "a": 1
     },
     {
@@ -196,38 +201,38 @@
     },
     {
       "q": "Quelle balise HTML sert à créer une liste non ordonnée (avec des puces) ?",
-      "c": ["<ol>", "<ul>", "<li>", "<list>"],
+      "c": ["&lt;ol&gt;", "&lt;ul&gt;", "&lt;li&gt;", "&lt;list&gt;"],
       "a": 1
     },
     {
       "q": "Quelle balise HTML sert à créer une liste ordonnée (avec des numéros) ?",
-      "c": ["<ul>", "<li>", "<ol>", "<num>"],
+      "c": ["&lt;ul&gt;", "&lt;li&gt;", "&lt;ol&gt;", "&lt;num&gt;"],
       "a": 2
     },
     
     {
       "q": "Quelle balise permet de créer un tableau ?",
-      "c": ["<tab>", "<table>", "<grid>", "<tr>"],
+      "c": ["&lt;tab&gt;", "&lt;table&gt;", "&lt;grid&gt;", "&lt;tr&gt;"],
       "a": 1
     },
     {
       "q": "Quelle balise représente une ligne du tableau ?",
-      "c": ["<td>", "<th>", "<tr>", "<row>"],
+      "c": ["&lt;td&gt;", "&lt;th&gt;", "&lt;tr&gt;", "&lt;row&gt;"],
       "a": 2
     },
     {
       "q": "Quelle balise représente une cellule ?",
-      "c": ["<tr>", "<td>", "<table>", "<thead>"],
+      "c": ["&lt;tr&gt;", "&lt;td&gt;", "&lt;table&gt;", "&lt;thead&gt;"],
       "a": 1
     },
     {
       "q": "Quelle balise sert à écrire un titre de colonne ?",
-      "c": ["<td>", "<tr>", "<th>", "<caption>"],
+      "c": ["&lt;td&gt;", "&lt;tr&gt;", "&lt;th&gt;", "&lt;caption&gt;"],
       "a": 2
     },
     {
       "q": "Quelle balise permet d’ajouter un titre au tableau ?",
-      "c": ["<title>", "<caption>", "<thead>", "<th>"],
+      "c": ["&lt;title&gt;", "&lt;caption&gt;", "&lt;thea&gt;>", "&lt;th&gt;"],
       "a": 1
     },
     {
@@ -241,8 +246,8 @@
       "a": 2
     },
     {
-      "q": "Quelle balise contient les données principales du tableau ?",
-      "c": ["<tfoot>", "<thead>", "<tbody>", "<table>"],
-      "a": 2
+      "q": "Quelle est la position par défaut d’un élément HTML ?",
+      "c": ["position: fixed;", "position: relative;", "position: absolute;", "position: static;"],
+      "a": 1
     }
   ]
