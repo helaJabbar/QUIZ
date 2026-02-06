@@ -221,7 +221,22 @@ function endQuiz() {
         <p class="message">${message}</p>
       </div>
     `;
-
+// 🔥 ENREGISTRER LE RÉSULTAT DANS FIREBASE
+const resultData = {
+    nom: participantName,
+    score: score,
+    total: questions.length,
+    temps: formatTime(timerElapsed),
+    date: new Date().toLocaleString()
+  };
+  
+  try {
+    await addDoc(collection(db, "resultats"), resultData);
+    console.log("Résultat enregistré !");
+  } catch (error) {
+    console.error("Erreur Firebase :", error);
+  }
+  
   clearInterval(timerInterval);
 
   if (isWinner) startConfetti();
