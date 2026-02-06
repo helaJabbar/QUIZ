@@ -230,12 +230,7 @@ const resultData = {
     date: new Date().toLocaleString()
   };
   
-  try {
-    await addDoc(collection(db, "resultats"), resultData);
-    console.log("Résultat enregistré !");
-  } catch (error) {
-    console.error("Erreur Firebase :", error);
-  }
+  
   
   clearInterval(timerInterval);
 
@@ -309,3 +304,4 @@ function startConfetti() {
 
   setInterval(draw, 20);
 }
+
