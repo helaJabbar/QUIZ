@@ -1,0 +1,248 @@
+[
+    {
+      "q": "À quoi sert HTML ?",
+      "c": [
+        "À styliser une page",
+        "À créer la structure d’une page web",
+        "À programmer des jeux",
+        "À faire des calculs"
+      ],
+      "a": 1
+    },
+    {
+      "q": "Quelle balise contient tout le contenu visible de la page ?",
+      "c": ["<html>", "<head>", "<body>", "<title>"],
+      "a": 2
+    },
+    {
+      "q": "Quelle balise sert à écrire un paragraphe ?",
+      "c": ["<h1>", "<p>", "<div>", "<span>"],
+      "a": 1
+    },
+    {
+      "q": "Quelle balise sert à écrire le plus grand titre ?",
+      "c": ["<h6>", "<h3>", "<h1>", "<title>"],
+      "a": 2
+    },
+    {
+      "q": "Quelle balise sert à afficher une image ?",
+      "c": ["<img>", "<image>", "<pic>", "<src>"],
+      "a": 0
+    },
+    {
+      "q": "Quel attribut est obligatoire pour une image ?",
+      "c": ["href", "alt", "src", "class"],
+      "a": 2
+    },
+    {
+      "q": "Quelle balise sert à créer un lien ?",
+      "c": ["<link>", "<a>", "<url>", "<href>"],
+      "a": 1
+    },
+    {
+      "q": "Que fait la balise <br> ?",
+      "c": ["Un paragraphe", "Un titre", "Un retour à la ligne", "Une image"],
+      "a": 2
+    },
+    {
+      "q": "Comment écrire un commentaire en HTML ?",
+      "c": [
+        "// commentaire",
+        "/* commentaire */",
+        "<!-- commentaire -->",
+        "# commentaire"
+      ],
+      "a": 2
+    },
+    {
+      "q": "Quelle extension a un fichier HTML ?",
+      "c": [".css", ".html", ".js", ".web"],
+      "a": 1
+    },
+    {
+      "q": "À quoi sert CSS ?",
+      "c": [
+        "À structurer la page",
+        "À styliser la page",
+        "À créer le contenu",
+        "À programmer"
+      ],
+      "a": 1
+    },
+    {
+      "q": "Quelle propriété change la couleur du texte ?",
+      "c": ["background-color", "font-size", "color", "text-align"],
+      "a": 2
+    },
+    {
+      "q": "Quelle propriété change la taille du texte ?",
+      "c": ["font-style", "font-size", "text-size", "text-font"],
+      "a": 1
+    },
+    {
+      "q": "Quelle propriété permet de centrer le texte ?",
+      "c": ["align-text", "center", "text-align", "margin"],
+      "a": 2
+    },
+    {
+      "q": "Quelle propriété change la couleur de fond ?",
+      "c": ["color", "background-color", "bgcolor", "border-color"],
+      "a": 1
+    },
+    {
+      "q": "Comment écrit-on un commentaire en CSS ?",
+      "c": [
+        "// commentaire",
+        "<!-- commentaire -->",
+        "/* commentaire */",
+        "# commentaire"
+      ],
+      "a": 2
+    },
+    {
+      "q": "Quel symbole commence une règle CSS ?",
+      "c": ["#", "{", ":", ";"],
+      "a": 1
+    },
+    {
+      "q": "Quelle propriété ajoute de l’espace à l’intérieur d’un élément ?",
+      "c": ["margin", "padding", "border", "space"],
+      "a": 1
+    },
+    {
+      "q": "Quelle propriété ajoute de l’espace à l’extérieur d’un élément ?",
+      "c": ["padding", "border", "margin", "width"],
+      "a": 2
+    },
+    {
+      "q": "Quelle unité est souvent utilisée pour la taille du texte ?",
+      "c": ["kg", "cm", "px", "s"],
+      "a": 2
+    },
+    {
+      "q": "Où peut-on écrire du CSS ?",
+      "c": [
+        "Dans un fichier .css",
+        "Dans la balise <style>",
+        "Directement dans une balise HTML",
+        "Toutes les réponses"
+      ],
+      "a": 3
+    },
+    {
+      "q": "Quelle balise HTML contient le CSS interne ?",
+      "c": ["<css>", "<script>", "<style>", "<design>"],
+      "a": 2
+    },
+    {
+      "q": "HTML et CSS servent principalement à :",
+      "c": [
+        "Créer des applications mobiles",
+        "Créer des pages web",
+        "Programmer des robots",
+        "Faire des calculs"
+      ],
+      "a": 1
+    },
+    {
+      "q": "Quel langage donne la structure de la page ?",
+      "c": ["CSS", "HTML", "JavaScript", "Python"],
+      "a": 1
+    },
+    {
+      "q": "Quel langage rend la page plus jolie ?",
+      "c": ["HTML", "CSS", "Java", "PHP"],
+      "a": 1
+    },
+    {
+      "q": "Quel sélecteur CSS cible une classe ?",
+      "c": ["#", ".", "*", "@"],
+      "a": 1
+    },
+    {
+      "q": "Quel sélecteur CSS cible un id ?",
+      "c": [".", "*", "#", "@"],
+      "a": 2
+    },
+    {
+      "q": "Quel est le bon ordre ?",
+      "c": ["CSS puis HTML", "HTML puis CSS", "CSS seulement", "Aucun ordre"],
+      "a": 1
+    },
+    {
+      "q": "Peut-on créer un site avec seulement HTML et CSS ?",
+      "c": ["Non", "Oui", "Seulement avec JavaScript", "Seulement avec Python"],
+      "a": 1
+    },
+    {
+      "q": "HTML et CSS sont :",
+      "c": [
+        "Des jeux",
+        "Des langages du Web",
+        "Des systèmes d’exploitation",
+        "Des bases de données"
+      ],
+      "a": 1
+    },
+    {
+      "q": "À quoi sert la propriété CSS border-radius ?",
+      "c": [
+        "À changer la couleur du texte",
+        "À arrondir les coins d’un élément",
+        "À ajouter une bordure",
+        "À centrer un élément"
+      ],
+      "a": 1
+    },
+    {
+      "q": "Quelle balise HTML sert à créer une liste non ordonnée (avec des puces) ?",
+      "c": ["<ol>", "<ul>", "<li>", "<list>"],
+      "a": 1
+    },
+    {
+      "q": "Quelle balise HTML sert à créer une liste ordonnée (avec des numéros) ?",
+      "c": ["<ul>", "<li>", "<ol>", "<num>"],
+      "a": 2
+    },
+    
+    {
+      "q": "Quelle balise permet de créer un tableau ?",
+      "c": ["<tab>", "<table>", "<grid>", "<tr>"],
+      "a": 1
+    },
+    {
+      "q": "Quelle balise représente une ligne du tableau ?",
+      "c": ["<td>", "<th>", "<tr>", "<row>"],
+      "a": 2
+    },
+    {
+      "q": "Quelle balise représente une cellule ?",
+      "c": ["<tr>", "<td>", "<table>", "<thead>"],
+      "a": 1
+    },
+    {
+      "q": "Quelle balise sert à écrire un titre de colonne ?",
+      "c": ["<td>", "<tr>", "<th>", "<caption>"],
+      "a": 2
+    },
+    {
+      "q": "Quelle balise permet d’ajouter un titre au tableau ?",
+      "c": ["<title>", "<caption>", "<thead>", "<th>"],
+      "a": 1
+    },
+    {
+      "q": "Que signifie <thead> ?",
+      "c": [
+        "Le pied du tableau",
+        "Le corps du tableau",
+        "L’en-tête du tableau",
+        "Une ligne spéciale"
+      ],
+      "a": 2
+    },
+    {
+      "q": "Quelle balise contient les données principales du tableau ?",
+      "c": ["<tfoot>", "<thead>", "<tbody>", "<table>"],
+      "a": 2
+    }
+  ]

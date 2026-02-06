@@ -1,0 +1,461 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+/* ===== HEADER FIXE ===== */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Fredoka+One&display=swap');
+
+#examHeader {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #F49F20;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 2px gray;
+    font-size: 3rem;
+}
+
+#examHeader #logo {
+    width: 80px;
+    height: auto;
+}
+
+#examHeader h1 {
+    flex: 1;
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+    font-size: 24px;
+    color: whitesmoke;
+    margin: 20px auto;
+}
+
+#examHeader #participantName {
+    font-family: 'Baloo 2', cursive;
+    font-size: 20px;
+    color: #ff6f61; /* corail doux */
+    text-align: right;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #fff0f0; /* fond légèrement rosé */
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+/*********************************QUIZ****************************************/
+.quiz-header {
+    margin-bottom: 30px;
+  }
+
+  #quizContainer {
+    display: none;
+    position: relative;
+    padding: 20px;
+    background-color: #ffffff;
+    
+    /* image en bas à droite, discrète */
+    background-image: url('HIPPO.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 150px; /* ajuste la taille */
+    opacity: 0.95; 
+  }
+  
+  
+.question-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  
+
+.question-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain; 
+    border-radius: 12px;
+    padding: 3px;
+    background: white;
+  }
+  
+#question {
+    font-family: "Comic Neue", "Fredoka One", "Poppins", cursive;
+    font-size: 1.45rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.4px;
+    margin: 10px 0 18px 0;
+    text-shadow: 1px 1px 0 #fff2d9;
+  }
+  
+.quiz {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    width: 700px;
+    padding: 10px 10px;
+    background: #ffffff;
+    border-radius: 25px;
+    border: 2px solid #ff9f1c;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+  }
+  #choices label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 6px 0;
+  }
+  
+  #choices input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #F49F20;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    background: #fff8e8;
+    transition: all 0.2s ease;
+  }
+  
+
+  #choices input[type="radio"]:hover {
+    background: #fff2d1;
+    transform: scale(1.05);
+  }
+
+  #choices input[type="radio"]:checked {
+    background: #F49F20;
+    border-color: #F49F20;
+  }
+
+  #choices input[type="radio"]:checked::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .btn-container {
+    display: flex;
+    gap: 10px; /* espace entre les boutons */
+    justify-content: center; /* centre horizontalement */
+    margin-top: 15px;
+  }
+  
+  .btn {
+    background: #F49F20;          
+    color: white;
+    border: none;
+    width: 150px; /* taille fixe ou tu peux garder 50% si tu veux flexible */
+    padding: 14px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: 18px;          
+    cursor: pointer;
+    box-shadow: 0 5px 0 #d8820b; 
+    transition: all 0.15s ease;
+  }
+  
+  .btn:hover {
+    background: #ffac2a;
+  }
+  
+  .btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 #d8820b;
+  }
+  
+  /*----------------------------------Formulaire------------------------------------*/
+
+#userForm h2 {
+    font-family: "Comic Neue", "Fredoka One", cursive;
+    color: #F49F20;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-family: "Comic Neue", "Fredoka One", cursive;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #ff9f1c;
+  }
+  
+  .form-group input {
+    width: 80%;
+    margin-left: 20px;
+    padding: 10px;
+    border-radius: 12px;
+    border: 2px solid #F49F20;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: "Comic Neue", cursive;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+  }
+  
+  .form-group input:focus {
+    border-color: #ffac2a;
+    outline: none;
+    box-shadow: 0 0 5px rgba(244,159,32,0.5);
+  }
+  
+  #startBtn {
+    background: #F49F20;          
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 14px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-radius: 18px;          
+    cursor: pointer;
+    box-shadow: 0 5px 0 #d8820b; 
+    transition: all 0.15s ease;
+  }
+  
+  #startBtn:hover {
+    background: #ffac2a;
+  }
+  
+  #startBtn:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 #d8820b;
+  }
+  footer{
+      width: 100%;
+      height: 60px;
+      background-color: #F49F20;
+      position: fixed;
+      bottom: 0px;
+      text-align: center;
+      margin-left: 0;
+  }
+ #mainFooter{
+     width: 600px;
+     height: auto;
+       
+
+ }
+ /************************************Barre de progression********************************/
+ #progress {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 20px;
+    color: #f1c40f;
+    font-weight: bold;
+    background-color: #fff7cc; /* fond jaune clair */
+    padding: 6px 12px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+  
+  
+  #progressBar {
+    display: grid;
+    grid-template-columns: repeat(20, 25px); /* 20 carrés par ligne */
+    grid-gap: 8px;  /* espace entre les carrés */
+    justify-content: center; /* centre la grille */
+    width: 90%;
+    max-width: 1200px;
+    margin: 15px auto 25px auto;
+  }
+  
+  .progressSquare {
+    width: 25px;
+    height: 25px;
+    background-color: rgb(255, 0, 43);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .progressSquare.answered {
+    background-color:#F49F20;
+  }
+  
+  .progressSquare:hover {
+    transform: scale(1.2);
+  }
+  /* Conteneur du résultat final */
+.quiz-result {
+    text-align: center;
+    padding: 30px;
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Baloo 2', cursive;
+    transition: transform 0.3s;
+}
+
+/* Succès */
+.quiz-result.success {
+    background-color: #F49F20;
+    color: #ffffff;
+    border: 2px solid #ac7117;
+}
+
+
+.quiz-result.fail {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 2px solid #dc3545;
+}
+
+
+.quiz-result .score {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 15px 0;
+}
+
+/* Message */
+/* Résultat du quiz */
+.quiz-result {
+  text-align: center;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: #fff8e1;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+/* Icône 🎉 ou ❌ */
+.quiz-result .icon {
+  font-size: 4rem;
+  margin-bottom: 10px;
+  color: #f49f20; /* orange */
+}
+
+/* Nom du participant */
+.quiz-result .nom {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: rgb(155, 6, 6);
+  text-transform: capitalize;
+  letter-spacing: 1.5px;
+}
+
+/* Score */
+.quiz-result .score {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #2e7d32; /* vert pour score */
+  font-weight: 600;
+}
+
+/* Temps utilisé */
+.quiz-result .time {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #1565c0; /* bleu pour le temps */
+  font-weight: 500;
+}
+
+/* Message de validation ou échec */
+.quiz-result .message {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+/* Si réussite */
+.quiz-result.success {
+  border: 3px solid #4caf50;
+}
+
+/* Si échec */
+.quiz-result.fail {
+  border: 3px solid #f44336;
+}
+/*******************************Feerique ***********************/
+/* Résultat féérique */
+.quiz-result {
+  position: relative;
+  text-align: center;
+  padding: 10px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #fff8e1, #ffecb3);
+  box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+  max-width: 700px;
+  margin: 10px auto;
+  overflow: hidden;
+}
+
+/* Icône */
+.quiz-result .icon {
+  font-size: 5rem;
+  margin-bottom: 15px;
+  animation: pop 0.5s ease forwards;
+}
+
+/* Nom du participant */
+.quiz-result .nom {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: rgb(155, 6, 6);
+  text-transform: capitalize;
+  letter-spacing: 2px;
+}
+
+/* Score */
+.quiz-result .score {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #2e7d32;
+}
+
+/* Temps utilisé */
+.quiz-result .time {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #1565c0;
+}
+
+/* Message */
+.quiz-result .message {
+  font-size: 1.3rem;
+  margin-top: 10px;
+  color: #424242;
+}
+
+/* Effets confetti canvas */
+#confettiCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Animation pop */
+@keyframes pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
