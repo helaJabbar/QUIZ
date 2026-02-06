@@ -247,7 +247,7 @@ function updateProgressBar() {
 
 // ================== FIN DU QUIZ ==================
 function endQuiz() {
-  const scoreMinimum = 2; 
+  const scoreMinimum = 25; 
   const participantName =
     document.getElementById("participantName").textContent;
 
@@ -482,4 +482,5 @@ function voirCertificat() {
     document.querySelector(".quiz-result").style.display = "block";
   }
   
+
 
