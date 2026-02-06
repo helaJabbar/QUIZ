@@ -245,7 +245,7 @@
       width: 100%;
       height: 60px;
       background-color: #F49F20;
-      position: fixed;
+      position: absolute;
       bottom: 0px;
       text-align: center;
       margin-left: 0;
@@ -458,4 +458,204 @@
   0% { transform: scale(0.5); opacity: 0; }
   50% { transform: scale(1.2); opacity: 1; }
   100% { transform: scale(1); }
+}
+/***************************Affichage des erreurs**************************/
+.erreur-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-top: 20px;
+}
+
+.choices-erreur .choice {
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.choices-erreur .correct {
+  background: #e8f5e9; /* vert clair */
+  border-left: 5px solid #2ecc71;
+}
+
+.choices-erreur .wrong {
+  background: #ffebee; /* rouge clair */
+  border-left: 5px solid #e74c3c;
+}
+
+.nav-erreurs {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+#questionCorrection {
+  font-family: "Comic Neue", "Fredoka One", "Poppins", cursive;
+  font-size: 1.45rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 10px 0 18px 0;
+}
+
+#choicesCorrection .choice {
+  padding: 6px 0;
+}
+
+/* Style de la correction */
+.erreur-card {
+  background: #fff;
+  border: 2px solid #eee;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.choice-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+.correct-review {
+  background-color: #d4edda !important;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+.wrong-review {
+  background-color: #f8d7da !important;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+.nav-erreurs-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+#correctionMode {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;          /* même largeur que .quiz */
+  max-height: 65vh;      /* évite de dépasser l’écran */
+  overflow-y: auto;
+  padding: 15px;
+  background: white;
+  border-radius: 25px;
+  border: 2px solid #ff9f1c;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* === Boutons spécifiques à la navigation des erreurs === */
+.nav-erreurs-footer .btn {
+  width: 100px;      /* au lieu de 150px */
+  padding: 4px;     /* plus compact */
+  font-size: 0.8rem;
+  border-radius: 14px;
+}
+#correctionMode .btn {
+  width: 100px;
+  padding: 4px;
+  font-size: 0.8rem;
+}
+
+
+.erreur-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;        /* ⬅️ moins d’espace interne */
+  margin-bottom: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+#questionCorrection {
+  font-family: "Comic Neue", "Fredoka One", "Poppins", cursive;
+  font-size: 1.45rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 10px 0 18px 0;
+}
+.choice-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;        /* ⬅️ réduit */
+  margin: 6px 0;
+  border-radius: 8px;
+  background: #f9f9f9;
+}
+
+
+.correct-review {
+  background-color: #d4edda !important;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+.wrong-review {
+  background-color: #f8d7da !important;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
+.nav-erreurs-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+/*******************************Certificat******************/
+/* ====== CONTAINER DU CERTIFICAT ====== */
+.certificate-container {
+  position: relative;
+  width: 700px;          /* même largeur que ton quiz */
+  margin: 20px auto 80px auto;
+  text-align: center;
+}
+
+/* Image A4 */
+.certificat-bg {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* NOM SUR LE CERTIFICAT */
+.certificat-name {
+  position: absolute;
+  top: 42%;      /* À ajuster selon ton image */
+  left: 50%;
+  transform: translate(-50%, -85%);
+  font-family: "Montserrat bold", cursive;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #08549f;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+  text-transform: capitalize;
+  white-space: nowrap;        /* 🔥 EMPÊCHE le retour à la ligne */
+  display: inline-block; 
+}
+.certificat-name::before {
+  content: "🎓 ";
+  display: inline-block; 
+}
+
+.certificat-name::after {
+  content: " 🎓";
+  display: inline-block; 
+}
+/* Bouton retour bien placé */
+.btn-certif {
+  margin-top: 15px;
 }
